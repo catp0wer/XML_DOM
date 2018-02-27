@@ -29,6 +29,18 @@ public class ParseXML {
             for(int i=0;i<nodeList.getLength();i++){
                 Node node = nodeList.item(i);
                 System.out.println("We are in :"+node.getNodeName());
+
+                if(node.getNodeType()==Node.ELEMENT_NODE){
+                    Element elem = (Element) node;
+
+                    System.out.println("CD id : " +((Element) node).getAttribute("id"));
+                    System.out.println("Title : "+ ((Element) node).getElementsByTagName("TITLE").item(0).getTextContent());
+                    System.out.println("Country : "+((Element) node).getElementsByTagName("COUNTRY").item(0).getTextContent());
+                    System.out.println("Company : "+((Element) node).getElementsByTagName("COMPANY").item(0).getTextContent());
+                    System.out.println("Price : "+((Element) node).getElementsByTagName("PRICE").item(0).getTextContent());
+                    System.out.println("Year : "+((Element) node).getElementsByTagName("YEAR").item(0).getTextContent());
+                    System.out.println();
+            }
             }
 
         } catch (ParserConfigurationException e) {
